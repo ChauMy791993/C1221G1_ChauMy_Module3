@@ -14,5 +14,5 @@ select subject.*
 select s.Student_Id,s.StudentName, avg(mark)
 from student s join mark m on s.Student_Id = m.Student_Id
 group by s.Student_Id
-order by avg(mark);
+order by avg(mark) desc;
 
