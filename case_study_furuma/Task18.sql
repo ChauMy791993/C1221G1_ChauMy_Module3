@@ -7,3 +7,4 @@ references khach_hang (ma_khach_hang) on delete set null;
 SET SQL_SAFE_UPDATES = 0;
 delete kh from khach_hang kh inner join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
 where year(hd.ngay_lam_hop_dong) = 2020 and year(hd.ngay_lam_hop_dong) != 2021;
+SET SQL_SAFE_UPDATES = 1;
