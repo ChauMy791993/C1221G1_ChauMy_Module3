@@ -1,0 +1,145 @@
+#menu {
+    height: 50px;
+    background-color: #2d3436;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+}
+
+#menu div {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#menu ul, #menu li {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    position: relative;
+    float: left;
+    list-style: none;
+}
+
+#menu div {
+    position: relative;
+    float: right;
+}
+
+#menu label {
+    color: #95a5a6;
+    text-align: center;
+    margin: 0 10px;
+}
+
+#menu li a {
+    width: 100px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    background-color: #2d3436;
+    color: #95a5a6;
+}
+
+img{
+    max-width: 60%;
+    max-height: 60%;
+    display: block;
+    margin-right: 10px;
+}
+
+#menu ul ul li a {
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu li a:hover {
+    background-color: #2d3436;
+
+}
+
+#menu ul ul {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul {
+    visibility: visible;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+.row{
+    display: flex;
+}
+body{
+    box-sizing: border-box;
+}
+.main{
+    height: 1000px;
+}
+.left-sidebar{
+    height: 100%;
+    background: #b2bec3;
+    margin: 50px 10px 10px 10px;
+
+}
+.right-sidebar{
+    height: 100%;
+    background: #b2bec3;
+    margin: 50px 10px 10px 10px;
+}
+.main-content{
+    height: 100%;
+    background: #efefef;
+    margin: 50px 10px 10px 10px;
+}
+.footer{
+    position: relative;
+    height: 100px;
+    margin: 50px 10px 10px 10px;
+    background: #636e72;
+    z-index: 1;
+}
+.box1 {
+    margin: 10px;
+    border: solid 1px;
+    height: 100px;
+    background-color: white;
+}
+.box1 p {
+    margin: 5px;
+    text-align: center;
+}
+.box2 {
+    margin: 10px;
+    border: solid 1px;
+    height: 100px;
+    background-color: white;
+}
+.box2 p {
+    margin: 5px;
+    text-align: center;
+}
+.content {
+    margin: 10px;
+}
