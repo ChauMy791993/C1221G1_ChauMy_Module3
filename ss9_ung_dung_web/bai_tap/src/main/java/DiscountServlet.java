@@ -12,6 +12,7 @@ public class DiscountServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String product = request.getParameter("product");
         double price = Float.parseFloat(request.getParameter("price"));
         double percent = Float.parseFloat(request.getParameter("percent"));
