@@ -3,10 +3,11 @@ package repository;
 import java.util.List;
 
 public interface ICrudRepository <E> {
-    List<E> getList ();
-    void save (E e);
+    List<E> list ();
+    void create (E e);
     void update (int id,E e);
-    void remove (int id);
-    E findByName (String name);
+    void delete (E e);
+    E findById (int id);
+    List<E> findByName (String name);
 
 }
