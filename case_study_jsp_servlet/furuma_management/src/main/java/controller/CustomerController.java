@@ -2,14 +2,15 @@ package controller;
 
 import model.customer.Customer;
 import model.customer.CustomerType;
-import service.ICustomerService;
-import service.ipml.CustomerServiceImpl;
+import service.customer.ICustomerService;
+import service.customer.CustomerServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerController", value = {"/customer"})
 public class CustomerController extends HttpServlet {
@@ -30,7 +31,7 @@ public class CustomerController extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "search":
-                searchProduct(request, response);
+                searchCustomer(request, response);
                 break;
             case "delete":
                 deleteCustomer(request, response);
@@ -41,7 +42,7 @@ public class CustomerController extends HttpServlet {
         }
     }
 
-    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
+    private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String address = request.getParameter("address");
         String typeId = request.getParameter("typeSearch");
@@ -136,13 +137,13 @@ public class CustomerController extends HttpServlet {
         String address = request.getParameter("address");
         Integer type = Integer.valueOf(request.getParameter("type"));
         Customer customer = new Customer(idCustomer, name, dateOfBirth, gender, idCard, phone, email, address, type);
-        iCustomerService.editCustomer(customer);
-        request.setAttribute("message", "User information was updated");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/edit.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
+        Map<String, String> validate = iCustomerService.editCustomer(customer);
+        if (validate.isEmpty()) {
+            request.setAttribute("message", "Edit successful !");
+            this.listCustomer(request, response);
+        } else {
+            request.setAttribute("validate", validate);
+            this.showEditForm(request,response);
         }
     }
 
@@ -156,13 +157,27 @@ public class CustomerController extends HttpServlet {
         String address = request.getParameter("address");
         Integer type = Integer.valueOf(request.getParameter("type"));
         Customer customer = new Customer(name, dateOfBirth, gender, idCard, phone, email, address, type);
-        iCustomerService.createCustomer(customer);
-        request.setAttribute("message", "New customer was created");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/create.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
+        Map<String, String> validate = iCustomerService.createCustomer(customer);
+        if (validate.isEmpty()) {
+            request.setAttribute("message", "Create successful !");
+            List<CustomerType> customerTypeList = iCustomerService.showListCustomerType();
+            request.setAttribute("customerTypeList", customerTypeList);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/create.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            request.setAttribute("validate", validate);
+            List<CustomerType> customerTypeList = iCustomerService.showListCustomerType();
+            request.setAttribute("customerTypeList", customerTypeList);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer/create.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

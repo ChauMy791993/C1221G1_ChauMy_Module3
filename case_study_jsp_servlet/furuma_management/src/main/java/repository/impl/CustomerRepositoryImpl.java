@@ -127,7 +127,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
 
     @Override
     public List<Customer> search(String name, String address, String type) {
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerFindList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = this.baseRepository.getConnection().prepareStatement
@@ -146,12 +146,12 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 String email = resultSet.getString("email");
                 String addressCustomer = resultSet.getString("dia_chi");
                 Integer typeCustomer = resultSet.getInt("ma_loai_khach");
-                customerList.add(new Customer(idCustomer, nameCustomer, dateOfBirth, gender, idCard, phone, email, addressCustomer, typeCustomer));
+                customerFindList.add(new Customer(idCustomer, nameCustomer, dateOfBirth, gender, idCard, phone, email, addressCustomer, typeCustomer));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return customerList;
+        return customerFindList;
     }
 
     @Override

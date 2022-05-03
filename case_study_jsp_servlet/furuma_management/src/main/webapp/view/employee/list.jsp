@@ -18,6 +18,8 @@
 </head>
 <body>
 <h1 style="text-align: center">
+    <a href="/">FURUMA HOMEPAGE</a>
+    <br>
     <a href="/employee">Employee List</a>
     <c:if test="${message != null}">
         <div id="message" class="alert alert-success" role="alert">
@@ -108,7 +110,7 @@
                 </c:forEach>
             </td>
             <td>
-                <button class="btn btn-info" type="button"><a href="/customer?action=edit&id=${product.id}"
+                <button class="btn btn-info" type="button"><a href="/employee?action=edit&id=${employee.employeeId}"
                                                               style="color: white">Sửa</a></button>
             </td>
             <td>

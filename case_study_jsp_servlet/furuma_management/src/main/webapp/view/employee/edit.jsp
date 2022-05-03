@@ -30,49 +30,53 @@
 <div align="center">
     <form method="post">
         <table border="1" cellpadding="5">
-            <c:if test="${employeeList != null}">
-                <input type="hidden" name="id" value='${employeeList.employeeId}'/>
+            <c:if test="${employee != null}">
+                <input type="hidden" name="id" value='${employee.employeeId}'/>
             </c:if>
             <tr>
                 <th>Employee Name:</th>
                 <td>
-                    <input type="text" name="name" id="name" size="45" value="${employeeList.employeeName}"/>
+                    <input type="text" name="name" id="name" size="45" value="${employee.employeeName}"/>
+                    <p style="color: red">${validate.get("name")}</p>
                 </td>
             </tr>
             <tr>
                 <th>Employee Birthday:</th>
                 <td>
-                    <input type="number" name="birthday" id="birthday" size="15" value="${employeeList.employeeBirthday}"/>
+                    <input type="number" name="birthday" id="birthday" size="15" value="${employee.employeeBirthday}"/>
                 </td>
             </tr>
             <tr>
                 <th>Employee IdCard:</th>
                 <td>
-                    <input type="date" name="idCard" id="idCard" size="15" value="${employeeList.employeeIdCard}"/>
+                    <input type="date" name="idCard" id="idCard" size="15" value="${employee.employeeIdCard}"/>
+                    <p style="color: red">${validate.get("idCard")}</p>
                 </td>
             </tr>
             <tr>
                 <th>salary:</th>
                 <td>
-                    <input type="text" name="salary" id="salary" size="15" value="${employeeList.salary}"/>
+                    <input type="number" name="salary" id="salary" size="15" value="${employee.salary}"/>
                 </td>
             </tr>
             <tr>
                 <th>phone:</th>
                 <td>
-                    <input type="text" name="phone" id="phone" size="15" value="${employeeList.phone}"/>
+                    <input type="text" name="phone" id="phone" size="15" value="${employee.phone}"/>
+                    <p style="color: red">${validate.get("phone")}</p>
                 </td>
             </tr>
             <tr>
                 <th>email:</th>
                 <td>
-                    <input type="text" name="email" id="email" size="15" value="${employeeList.email}"/>
+                    <input type="text" name="email" id="email" size="15" value="${employee.email}"/>
+                    <p style="color: red">${validate.get("email")}</p>
                 </td>
             </tr>
             <tr>
                 <th>address:</th>
                 <td>
-                    <input type="text" name="address" id="address" size="15" value="${employeeList.address}"/>
+                    <input type="text" name="address" id="address" size="15" value="${employee.address}"/>
                 </td>
             </tr>
             <tr>
@@ -80,10 +84,10 @@
                 <td>
                     <select name="idPosition" id="idPosition">
                         <c:forEach items="${positionList}" var="position">
-                            <c:if test="${employeeList.positionId == position.positionId}">
+                            <c:if test="${employee.position == position.positionId}">
                                 <option selected value="${position.positionId}">${position.positionName}</option>
                             </c:if>
-                            <c:if test="${employeeList.positionId != position.positionId}">
+                            <c:if test="${employee.position != position.positionId}">
                                 <option value="${position.positionId}">${position.positionName}</option>
                             </c:if>
                         </c:forEach>
@@ -95,10 +99,10 @@
                 <td>
                     <select name="idEducationDegree" id="idEducationDegree">
                         <c:forEach items="${educationDegreeList}" var="educationDegree">
-                            <c:if test="${employeeList.educationDegreeId == educationDegree.educationDegreeId}">
+                            <c:if test="${employee.educationDegree == educationDegree.educationDegreeId}">
                                 <option selected value="${educationDegree.educationDegreeId}">${educationDegree.educationDegreeName}</option>
                             </c:if>
-                            <c:if test="${employeeList.educationDegreeId != educationDegree.educationDegreeId}">
+                            <c:if test="${employee.educationDegree != educationDegree.educationDegreeId}">
                                 <option value="${educationDegree.educationDegreeId}">${educationDegree.educationDegreeName}</option>
                             </c:if>
                         </c:forEach>
@@ -110,10 +114,10 @@
                 <td>
                     <select name="idDivision" id="idDivision">
                         <c:forEach items="${divisionList}" var="division">
-                            <c:if test="${employeeList.divisionId == division.divisionId}">
+                            <c:if test="${employee.division == division.divisionId}">
                                 <option selected value="${division.divisionId}">${division.divisionName}</option>
                             </c:if>
-                            <c:if test="${employeeList.divisionId != division.divisionId}">
+                            <c:if test="${employee.division != division.divisionId}">
                                 <option value="${division.divisionId}">${division.divisionName}</option>
                             </c:if>
                         </c:forEach>

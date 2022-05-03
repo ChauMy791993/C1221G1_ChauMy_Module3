@@ -33,6 +33,7 @@
                 <th>Employee Name:</th>
                 <td>
                     <input type="text" name="name" id="name" size="45" value="${employeeName}"/>
+                    <p style="color: red">${validate.get("name")}</p>
                 </td>
             </tr>
             <tr>
@@ -45,24 +46,28 @@
                 <th>Employee IdCard:</th>
                 <td>
                     <input type="number" name="idCard" id="idCard" size="15" value="${employeeIdCard}"/>
+                    <p style="color: red">${validate.get("idCard")}</p>
                 </td>
             </tr>
             <tr>
                 <th>salary:</th>
                 <td>
-                    <input type="text" name="salary" id="salary" size="15" value="${salary}"/>
+                    <input type="number" name="salary" id="salary" size="15" value="${salary}"/>
+                    <p style="color: red">${validate.get("salary")}</p>
                 </td>
             </tr>
             <tr>
                 <th>phone:</th>
                 <td>
                     <input type="text" name="phone" id="phone" size="15" value="${phone}"/>
+                    <p style="color: red">${validate.get("phone")}</p>
                 </td>
             </tr>
             <tr>
                 <th>email:</th>
                 <td>
                     <input type="text" name="email" id="email" size="15" value="${email}"/>
+                    <p style="color: red">${validate.get("email")}</p>
                 </td>
             </tr>
             <tr>

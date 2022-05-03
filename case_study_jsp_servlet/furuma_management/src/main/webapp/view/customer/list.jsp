@@ -22,7 +22,11 @@
         </h2>
     </div>
     <div class="col-6 mx-auto">
-        <h1 class="text-center"><a href="/">Furama Menu</a></h1>
+        <h1 class="text-center">
+            <a href="/">Furuma Menu</a>
+            <br>
+            <a href="/customer">Customer List</a>
+        </h1>
         <c:if test="${message != null}">
             <div class="alert alert-success" role="alert">
                     ${message}
@@ -33,10 +37,10 @@
         <form class="form-inline" method="get">
             <input type="hidden" name="action" value="search">
             <input class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search"
-                   name="searchByName">
+                   name="name">
             <input class="form-control mr-sm-2" type="search" placeholder="Search by address" aria-label="Search"
-                   name="searchByAddress">
-            <select name="searchByCustomerType" id="searchByCustomerType">
+                   name="address">
+            <select name="typeSearch" id="typeSearch">
                 <option value="0"></option>
                 <c:forEach items="${customerTypeList}" var="type">
                     <option value="${type.idCustomerType}">${type.nameCustomerType}</option>

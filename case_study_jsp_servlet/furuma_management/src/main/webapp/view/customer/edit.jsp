@@ -37,6 +37,7 @@
                 <th>Name:</th>
                 <td>
                     <input type="text" name="name" id="name" size="45" value="${customerList.name}"/>
+                    <p style="color: red">${validate.get("name")}</p>
                 </td>
             </tr>
             <tr>
@@ -67,18 +68,21 @@
                 <th>Id Card:</th>
                 <td>
                     <input type="text" name="idCard" id="idCard" size="15" value="${customerList.idCard}"/>
+                    <p style="color: red">${validate.get("idCard")}</p>
                 </td>
             </tr>
             <tr>
                 <th>Phone:</th>
                 <td>
                     <input type="text" name="phone" id="phone" size="15" value="${customerList.phone}"/>
+                    <p style="color: red">${validate.get("phone")}</p>
                 </td>
             </tr>
             <tr>
                 <th>Email:</th>
                 <td>
                     <input type="text" name="email" id="email" size="15" value="${customerList.email}"/>
+                    <p style="color: red">${validate.get("email")}</p>
                 </td>
             </tr>
             <tr>
